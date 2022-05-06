@@ -7,10 +7,15 @@ public class Joueur {
     private boolean reserve =true;
     private boolean greve;
     private ArrayList <Integer> pastScore = new ArrayList<Integer>();
+    private int tour=0;
 
 
     public void setReserve(boolean reserve) {
         this.reserve = reserve;
+    }
+
+    public void setReserve(int tour) {
+        this.tour = tour;
     }
 
     public boolean isGreve() {
@@ -36,8 +41,8 @@ public class Joueur {
     }
 
     public  void setpastScore(int lancer1 , int lancer2){
-        this.lancer.add(lancer1);
-        this.lancer.add(lancer2);
+        this.pastScore.add(lancer1);
+        this.pastScore.add(lancer2);
     }
 
     public int checkNbreTry(){
@@ -73,4 +78,8 @@ public class Joueur {
             return -1;
         }
     }
+
+
+
+
 }
