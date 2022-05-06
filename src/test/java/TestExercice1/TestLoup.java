@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test;
 
 
 public class TestLoup {
-    LoupGarou loup = new LoupGarou();
+    LoupGarou loup = new LoupGarou("North");
+
 
     @BeforeEach
     public void setUpLoup(){
-
-        loup.setPosition("North");
+        loup.turningposition();
     }
 
     @Test
@@ -23,22 +23,22 @@ public class TestLoup {
 
     @Test
     public void verifyTurnNorth(){
-        Assertions.assertEquals("East", loup.turningposition("North"));
+        Assertions.assertEquals("East", loup.turningposition());
     }
 
     @Test
     public void verifyTurnEast(){
-        Assertions.assertEquals("South", loup.turningposition("East"));
+        Assertions.assertEquals("South", loup.turningposition());
     }
 
     @Test
     public void verifyTurnSouth(){
-        Assertions.assertEquals("West", loup.turningposition("South"));
+        Assertions.assertEquals("West", loup.turningposition());
     }
 
     @Test
     public void verifyTurnWest(){
-        Assertions.assertEquals("North", loup.turningposition("West"));
+        Assertions.assertEquals("North", loup.turningposition());
     }
 
 

@@ -3,8 +3,8 @@ package Exercice1;
 public class LoupGarou {
     private String position;
 
-    public LoupGarou() {
-
+    public LoupGarou(String position) {
+        this.position = position;
     }
 
     public String getPosition() {
@@ -15,17 +15,17 @@ public class LoupGarou {
         this.position = position;
     }
 
-    public String turningposition(String Actual_position){
-        if(Actual_position == "North"){
+    public String turningposition(){
+        if(this.getPosition() == "North"){
             return "East";
         }
-        else if (Actual_position == "East") {
+        else if (this.getPosition()== "East") {
             return "South";
         }
-        else if (Actual_position == "East") {
+        else if (this.getPosition() == "East") {
             return "West";
         }
-        else if (Actual_position == "West") {
+        else if (this.getPosition() == "West") {
             return "North";
         }
         else{
