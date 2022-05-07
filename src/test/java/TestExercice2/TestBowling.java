@@ -66,6 +66,14 @@ public class TestBowling {
         Assertions.assertEquals(24, j1.calculgreve(j1.AllScore.get(8)));
     }
 
+    @Test
+    public void TestAddingLastlancer(){
+        Assertions.assertEquals(true, j1.checkaddinglancer(j1.AllScore.get(10)));
+    }
 
+    @Test
+    public void TestScore(){
+        Assertions.assertEquals(,j1.checkingFinalScore());
+    }
 
 }

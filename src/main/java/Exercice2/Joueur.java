@@ -119,4 +119,13 @@ public class Joueur {
         }
     }
 
+    public boolean checkaddinglancer(Score score_lancer){
+        if((checkgreve(score_lancer))||(checkreserve(score_lancer))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
