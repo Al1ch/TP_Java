@@ -8,6 +8,7 @@ public class Joueur {
     private boolean greve;
     private ArrayList <Integer> pastScore = new ArrayList<Integer>();
     private int tour=0;
+    private int score=0;
 
 
     public void setReserve(boolean reserve) {
@@ -18,9 +19,10 @@ public class Joueur {
         this.tour = tour;
     }
 
-    public boolean isGreve() {
-        return greve;
+    public void setTour(int tour) {
+        this.tour = tour;
     }
+
 
     public void setGreve(boolean greve) {
         this.greve = greve;
@@ -46,13 +48,13 @@ public class Joueur {
     }
 
     public int checkNbreTry(){
-        int score =0;
         if(this.lancer.size()==2){
-            score =this.lancer.get(0) + this.lancer.get(1);
-            System.out.println("SCORE " + score);
+            int score_lancer = this.lancer.get(0) + this.lancer.get(1);
+            score = score +  score_lancer;
             return score;
         }
         else{
+            score += this.lancer.get(0);
             return this.lancer.get(0);
         }
 
@@ -61,7 +63,9 @@ public class Joueur {
     public int checkreserve(){
         if(this.reserve==true){
             this.reserve=false;
-            return 10 + checkNbreTry();
+            int score_lancer = 10 + checkNbreTry() + checkNbreTry();
+            score = score + score_lancer;
+            return score_lancer;
         }
         else{
             return 0;
@@ -72,14 +76,16 @@ public class Joueur {
     public int checkgreve(){
         if((this.greve==true)&&(this.pastScore.size()==2)){
             this.greve=false;
-            return 20 + this.pastScore.get(0) + this.pastScore.get(1);
+            int score1_after_greve =  10 + this.pastScore.get(0) + this.pastScore.get(0);
+            int score2_after_greve =  10 + this.pastScore.get(1) + this.pastScore.get(1);
+
+            score = score + score1_after_greve + score2_after_greve;
+            return score1_after_greve + score2_after_greve;
         }
         else{
             return -1;
         }
     }
-
-
-
+    
 
 }

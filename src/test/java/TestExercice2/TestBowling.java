@@ -33,7 +33,7 @@ public class TestBowling {
         Joueur j1 = new Joueur();
         j1.setReserve(true);
         j1.setLancer(3,7);
-        Assertions.assertEquals(20, j1.checkreserve());
+        Assertions.assertEquals(30, j1.checkreserve());
 
     }
 
@@ -41,14 +41,18 @@ public class TestBowling {
     public void TestScoreGreve(){
         Joueur j1 = new Joueur();
         j1.setGreve(true);
-        j1.setpastScore(7,2);
-        Assertions.assertEquals(29, j1.checkgreve());
-
+        j1.setpastScore(7,8);
+        Assertions.assertEquals(50, j1.checkgreve());
     }
 
 
     @Test
     public void TestDernierCadre(){
+        Joueur j1 = new Joueur();
+        j1.setGreve(true);
+        j1.setTour(10);
+        j1.setLancer(3,8);
+        Assertions.assertEquals(50, j1.lastShot);
 
     }
 
