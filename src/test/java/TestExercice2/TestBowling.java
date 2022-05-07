@@ -17,7 +17,6 @@ public class TestBowling {
 
     @BeforeEach
     public void setUpJoueur(){
-        j1.AllScore.add(j1.CreateNewScore(1,1));
         j1.AllScore.add(j1.CreateNewScore(3,0));
         j1.AllScore.add(j1.CreateNewScore(5,3));
         j1.AllScore.add(j1.CreateNewScore(6,4));
@@ -27,53 +26,53 @@ public class TestBowling {
         j1.AllScore.add(j1.CreateNewScore(10,0));
         j1.AllScore.add(j1.CreateNewScore(3,4));
         j1.AllScore.add(j1.CreateNewScore(6,3));
-        j1.AllScore.add(j1.CreateNewScore(5,5));
+        j1.AllScore.add(j1.CreateNewScore(5,1));
     }
 
 
     @Test
     public void TestNbredeQuilleTwoTry(){
-        Assertions.assertEquals(2, j1.checkNbreTry(j1.AllScore.get(1)));
+        Assertions.assertEquals(2, j1.checkNbreTry(j1.AllScore.get(0)));
     }
 
 
     @Test
     public void TestNbredeQuilleOneTry(){
-        Assertions.assertEquals(1, j1.checkNbreTry(j1.AllScore.get(4)));
+        Assertions.assertEquals(1, j1.checkNbreTry(j1.AllScore.get(6)));
     }
 
     @Test
     public void TestReserve(){
-        Assertions.assertEquals(true, j1.checkreserve(j1.AllScore.get(3)));
+        Assertions.assertEquals(true, j1.checkreserve(j1.AllScore.get(2)));
     }
 
 
     @Test
     public void TestScoreReserve(){
-        j1.checkreserve(j1.AllScore.get(3));
-        Assertions.assertEquals(27, j1.calculreserve(j1.AllScore.get(4)));
+        j1.checkreserve(j1.AllScore.get(2));
+        Assertions.assertEquals(27, j1.calculreserve(j1.AllScore.get(3)));
 
     }
 
     @Test
     public void TestGreve(){
-        Assertions.assertEquals(true, j1.checkgreve(j1.AllScore.get(7)));
+        Assertions.assertEquals(true, j1.checkgreve(j1.AllScore.get(6)));
     }
 
     @Test
     public void TestScoreGreve(){
-        j1.checkgreve(j1.AllScore.get(7));
-        Assertions.assertEquals(24, j1.calculgreve(j1.AllScore.get(8)));
+        j1.checkgreve(j1.AllScore.get(6));
+        Assertions.assertEquals(24, j1.calculgreve(j1.AllScore.get(7)));
     }
 
     @Test
     public void TestAddingLastlancer(){
-        Assertions.assertEquals(true, j1.checkaddinglancer(j1.AllScore.get(10)));
+        Assertions.assertEquals(false, j1.checkaddinglancer(j1.AllScore.get(9)));
     }
 
     @Test
     public void TestScore(){
-        Assertions.assertEquals(,j1.checkingFinalScore());
+        Assertions.assertEquals(94,j1.checkingFinalScore());
     }
 
 }
