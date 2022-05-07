@@ -83,24 +83,24 @@ public class Joueur {
 
     public int checkingFinalScore(){
         Score score_value;
-        int done_calc;
+        int already_calc;
         for(int i =0 ; i<AllScore.size(); i++){
             score_value = AllScore.get(i);
-            done_calc=0;
+            already_calc=0;
             if(greve == true){
                 calculgreve(score_value);
-                done_calc =1;
+                already_calc =1;
                 greve=false;
             }
             else if(reserve==true){
                 calculreserve(score_value);
-                done_calc=1;
+                already_calc=1;
                 reserve=false;
             }
             checkreserve(score_value);
             checkgreve(score_value);
 
-            if ((greve == false )&&(reserve==false)&&(done_calc==0)){
+            if ((greve == false )&&(reserve==false)&&(already_calc ==0)){
                 score = score +score_value.score_1 + score_value.score_2;
             }
 
