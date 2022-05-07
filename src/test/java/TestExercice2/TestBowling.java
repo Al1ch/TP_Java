@@ -1,6 +1,8 @@
 package TestExercice2;
 import Exercice2.Joueur;
 import java.util.*;
+
+import Exercice2.Score;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,54 +13,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestBowling {
+    Joueur j1 = new Joueur();
+
+    @BeforeEach
+    public void setUpJoueur(){
+        j1.AllScore.add(j1.CreateNewScore(1,1));
+        j1.AllScore.add(j1.CreateNewScore(3,0));
+        j1.AllScore.add(j1.CreateNewScore(5,3));
+        j1.AllScore.add(j1.CreateNewScore(6,4));
+        j1.AllScore.add(j1.CreateNewScore(8,1));
+        j1.AllScore.add(j1.CreateNewScore(7,2));
+        j1.AllScore.add(j1.CreateNewScore(8,0));
+        j1.AllScore.add(j1.CreateNewScore(10,0));
+        j1.AllScore.add(j1.CreateNewScore(3,4));
+        j1.AllScore.add(j1.CreateNewScore(6,3));
+        j1.AllScore.add(j1.CreateNewScore(5,5));
+    }
 
 
     @Test
     public void TestNbredeQuilleTwoTry(){
-        Joueur j1 = new Joueur();
-        j1.setLancer(3,7);
-        Assertions.assertEquals(10, j1.checkNbreTry());
+        Assertions.assertEquals(2, j1.checkNbreTry(j1.AllScore.get(1)));
     }
+
 
     @Test
     public void TestNbredeQuilleOneTry(){
-        Joueur j1 = new Joueur();
-        j1.setLancer(7);
-        Assertions.assertEquals(7, j1.checkNbreTry());
+        Assertions.assertEquals(1, j1.checkNbreTry(j1.AllScore.get(4)));
+    }
+
+    @Test
+    public void TestReserve(){
+        Assertions.assertEquals(true, j1.checkreserve(j1.AllScore.get(3)));
     }
 
 
     @Test
     public void TestScoreReserve(){
-        Joueur j1 = new Joueur();
-        j1.setReserve(true);
-        j1.setLancer(3,7);
-        Assertions.assertEquals(30, j1.checkreserve());
+        j1.checkreserve(j1.AllScore.get(3));
+        Assertions.assertEquals(27, j1.calculreserve(j1.AllScore.get(4)));
 
+    }
+
+    @Test
+    public void TestGreve(){
+        Assertions.assertEquals(true, j1.checkgreve(j1.AllScore.get(7)));
     }
 
     @Test
     public void TestScoreGreve(){
-        Joueur j1 = new Joueur();
-        j1.setGreve(true);
-        j1.setpastScore(7,8);
-        Assertions.assertEquals(50, j1.checkgreve());
+        j1.checkgreve(j1.AllScore.get(7));
+        Assertions.assertEquals(24, j1.calculgreve(j1.AllScore.get(8)));
     }
 
 
-    @Test
-    public void TestDernierCadre(){
-        Joueur j1 = new Joueur();
-        j1.setGreve(true);
-        j1.setTour(10);
-        j1.setLancer(3,8);
-        Assertions.assertEquals(50, j1.lastShot);
-
-    }
-
-    @Test
-    public void ScoreTotal(){
-
-    }
 
 }
