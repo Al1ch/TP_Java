@@ -3,9 +3,12 @@ package Exercice1;
 public class LoupGarou {
     private String position;
 
-    public LoupGarou(String position) {
+    public LoupGarou(){};
+
+    public void setLoupGarou(String position) {
         this.position = position;
     }
+
 
     public String getPosition() {
         return position;
@@ -22,7 +25,7 @@ public class LoupGarou {
         else if (this.getPosition()== "East") {
             return "South";
         }
-        else if (this.getPosition() == "East") {
+        else if (this.getPosition() == "South") {
             return "West";
         }
         else if (this.getPosition() == "West") {
