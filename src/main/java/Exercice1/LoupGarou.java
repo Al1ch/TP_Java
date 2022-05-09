@@ -18,23 +18,33 @@ public class LoupGarou {
         this.position = position;
     }
 
+    public String LoupRotation(int nbre_rotation){
+        for(int i=0 ; i<nbre_rotation ; i++){
+            turningposition();
+        }
+        return this.position;
+    }
+
+
     public String turningposition(){
         if(this.getPosition() == "North"){
-            return "East";
+            this.position = "East";
+            return this.position;
         }
         else if (this.getPosition()== "East") {
-            return "South";
+            this.position = "South";
+            return this.position;
         }
         else if (this.getPosition() == "South") {
-            return "West";
+            this.position = "West";
+            return this.position;
         }
         else if (this.getPosition() == "West") {
-            return "North";
+            this.position = "North";
+            return this.position;
         }
         else{
             return null;
         }
-
-
     }
 }

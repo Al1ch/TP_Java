@@ -46,5 +46,9 @@ public class TestLoup {
         Assertions.assertEquals("North", loup.turningposition());
     }
 
-
+    @Test
+    public void verifyLoupRotation(){
+        loup.setLoupGarou("North");
+        Assertions.assertEquals("North", loup.LoupRotation(4));
+    }
 }
