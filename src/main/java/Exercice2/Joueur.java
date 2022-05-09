@@ -104,10 +104,8 @@ public class Joueur {
                 score = score +score_value.score_1 + score_value.score_2;
             }
 
-
-
-            System.out.println(score);
         }
+        System.out.println( "Final Score : " + score);
         return score;
     }
 
