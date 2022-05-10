@@ -31,10 +31,10 @@ public class Joueur {
         int score_total = score_lancer.score_1 + score_lancer.score_2;
         if((score_lancer.score_1 >=0)&&(score_lancer.score_1 <10)&&(score_total ==10)){
             reserve=true;
-            return reserve;
+            return true;
         }
         reserve =false;
-        return reserve;
+        return false;
     }
 
 
@@ -52,10 +52,10 @@ public class Joueur {
     public boolean checkgreve(Score score_lancer){
         if(score_lancer.score_1 ==10){
             greve=true;
-            return greve;
+            return true;
         }
         this.greve=false;
-        return greve;
+        return false;
     }
 
     public int calculgreve(Score score_lancer){
@@ -72,36 +72,30 @@ public class Joueur {
     }
 
     public boolean checkaddinglancer(Score score_lancer){
-        if((checkgreve(score_lancer))||(checkreserve(score_lancer))){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return (checkgreve(score_lancer)) || (checkreserve(score_lancer));
     }
 
 
     public int checkingFinalScore(){
         Score score_value;
         int already_calc;
-        for(int i =0 ; i<AllScore.size(); i++){
-            score_value = AllScore.get(i);
-            already_calc=0;
-            if(greve == true){
+        for (Score value : AllScore) {
+            score_value = value;
+            already_calc = 0;
+            if (greve) {
                 calculgreve(score_value);
-                already_calc =1;
-                greve=false;
-            }
-            else if(reserve==true){
+                already_calc = 1;
+                greve = false;
+            } else if (reserve) {
                 calculreserve(score_value);
-                already_calc=1;
-                reserve=false;
+                already_calc = 1;
+                reserve = false;
             }
             checkreserve(score_value);
             checkgreve(score_value);
 
-            if ((greve == false )&&(reserve==false)&&(already_calc ==0)){
-                score = score +score_value.score_1 + score_value.score_2;
+            if ((!greve) && (!reserve) && (already_calc == 0)) {
+                score = score + score_value.score_1 + score_value.score_2;
             }
 
         }

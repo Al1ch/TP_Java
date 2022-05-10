@@ -1,10 +1,10 @@
 package TestExercice2;
 import Exercice2.Joueur;
+import Exercice2.Score;
 import java.util.*;
 
-import Exercice2.Score;
+
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +43,7 @@ public class TestBowling {
 
     @Test
     public void TestReserve(){
-        Assertions.assertEquals(true, j1.checkreserve(j1.AllScore.get(2)));
+        Assertions.assertTrue(j1.checkreserve(j1.AllScore.get(2)));
     }
 
 
@@ -56,7 +56,7 @@ public class TestBowling {
 
     @Test
     public void TestGreve(){
-        Assertions.assertEquals(true, j1.checkgreve(j1.AllScore.get(6)));
+        Assertions.assertTrue(j1.checkgreve(j1.AllScore.get(6)));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TestBowling {
 
     @Test
     public void TestAddingLastlancer(){
-        Assertions.assertEquals(false, j1.checkaddinglancer(j1.AllScore.get(9)));
+        Assertions.assertFalse(j1.checkaddinglancer(j1.AllScore.get(9)));
     }
 
     @Test

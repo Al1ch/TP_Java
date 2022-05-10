@@ -30,6 +30,7 @@ public class TestLoup {
 
     @Test
     public void verifyTurnEast(){
+        System.out.println(loup.getPosition());
         loup.setLoupGarou("East");
         Assertions.assertEquals("South", loup.turningposition());
     }
